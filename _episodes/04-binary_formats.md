@@ -1,13 +1,13 @@
 ---
-title: "Working with Compressed Files"
-teaching: 45
-exercises: 75
+title: "Binary formats: NetCDF and HDF5"
+teaching: 105
+exercises: 15
 questions:
-- "How to read data from compressed files without uncompressing them explicitly?"
+- "How to store large amounts of numerical data?"
 objectives:
-- "Using python we can read the contents of compressed files without explicit uncompress them."
+- "Learn how to store big numerical arrays in NetCDF and HDF5 formats."
 keypoints:
-- "Reading the contents of compressed files is easy with Python. We can use the zipfile, bz2, zlib, gzip and tarfile modules to achieve this. For the case of a zip file, we can using the ZipFile constructor. Get the list of files inside it using infolist() and open each of those files using open(). After that you can read from it just like a normal file."
+- "Storing large numerical arrays as text is highly inefficient both for humans and machine. NetCDF and HDF5 are de-facto standards for storing numerical data and metadata."
 ---
 FIXME
 
