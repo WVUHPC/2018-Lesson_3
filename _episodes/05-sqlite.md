@@ -1,6 +1,6 @@
 ---
 title: "Creating simple Databases with SQLite"
-teaching: 45
+teaching: 15
 exercises: 15
 questions:
 - "How to use SQLite?"

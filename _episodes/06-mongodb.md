@@ -1,6 +1,6 @@
 ---
 title: "No-SQL databases with MongoDB"
-teaching: 45
+teaching: 15
 exercises: 15
 questions:
 - "How to use a MongoDB database?"
