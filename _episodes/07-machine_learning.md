@@ -1,9 +1,9 @@
 ---
-title: "Machine Learning with Keras and TensorFlow"
+title: "Machine Learning: (scikit-learn, Keras, and TensorFlow)"
 teaching: 45
 exercises: 15
 questions:
-- "How to use Keras and TensorFlow for basic Neural Network operations?"
+- "What is Machine Learning and all the fuzz about it?"
 objectives:
 - "Get a first hand experience working with Keras and TensorFlow"
 keypoints:
