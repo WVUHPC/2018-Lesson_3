@@ -147,7 +147,72 @@ XML stands for Extensible Markup Language (XML). Similar to HTML it contains mar
 
 Being more verbose than JSON, the big advantage for XML is being widely adopted by the computer industry and many programming languages and data applications offer support  for it.
 
+### XML in R
 
+Using XML in R involves the use of the `XML` library in R. The success reading a XML depends in a great deal of how correct is the XML data that you are trying to parse. For things like Webpages with missing tags and improper nodes. The simple function that we present here will not work.
+
+On folder `2018-Data-HandsOn/3.Data/3.json_xml` there is a file `crystals_10k.xml`, corresponding to the first 10K entries on the same JSON file above. As the natural structure in R is a dataframe, the objective will be convert the XML file into that.
+
+When everything goes smoothly the process is very simple:
+
+~~~
+library(XML)
+df<-xmlToDataFrame("crystals_10k.xml")
+~~~
+{: .language-r}
+
+The alternative is far more evolved, having to deal with each individual node, and eventually attributes and values as shown in the example below:
+
+~~~
+> data<-xmlParse('crystals_10k.xml')
+> rootnode<-xmlRoot(data)
+> rootnode[1]
+$CRYSTAL
+<CRYSTAL>
+  <FORMULA>F3La</FORMULA>
+  <ENERGY_PA>-6.71325961083333</ENERGY_PA>
+  <BAND_GAP>6.69</BAND_GAP>
+</CRYSTAL>
+
+attr(,"class")
+[1] "XMLInternalNodeList" "XMLNodeList"
+> xmlChildren(rootnode[[1]])
+$FORMULA
+<FORMULA>F3La</FORMULA>
+
+$ENERGY_PA
+<ENERGY_PA>-6.71325961083333</ENERGY_PA>
+
+$BAND_GAP
+<BAND_GAP>6.69</BAND_GAP>
+
+attr(,"class")
+[1] "XMLInternalNodeList" "XMLNodeList"
+> one<-xmlChildren(rootnode[[1]])
+> one
+$FORMULA
+<FORMULA>F3La</FORMULA>
+
+$ENERGY_PA
+<ENERGY_PA>-6.71325961083333</ENERGY_PA>
+
+$BAND_GAP
+<BAND_GAP>6.69</BAND_GAP>
+
+attr(,"class")
+[1] "XMLInternalNodeList" "XMLNodeList"
+> one$FORMULA
+<FORMULA>F3La</FORMULA>
+> xmlChildren(one$FORMULA)
+$text
+F3La
+
+attr(,"class")
+[1] "XMLInternalNodeList" "XMLNodeList"
+> xmlChildren(one$FORMULA)$text
+F3La
+~~~
+{: .language-r}
 
 
 {% include links.md %}
