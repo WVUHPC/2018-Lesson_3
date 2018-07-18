@@ -111,7 +111,17 @@ Finally, all that we have to do is close the Root Group and the file is save.
 rootgrp.close()
 ~~~
 {: .source}
+
+
+The final file is 4.6MB and its storing both variables and the corresponding metadata. Compared with 14.5 MB from the original text files. For this small example will not be noticeable but the time to access this data compared with a text format is several orders of magnitude. Doing this exercise with 10 million atoms show as how storing data in a binary format is more effective.
+
 ~~~
+$ du -sh positions.dat forces.dat MD.nc
+716M	positions.dat
+716M	forces.dat
+458M	MD.nc
+~~~
+{: .output}
 
 ### HDF5
 
@@ -121,7 +131,6 @@ of tables, where values can be either matrices, scalars or vectors.
 Here we are presenting a simple example, with one dataset storing a matrix of floating point numbers
 
 ~~~
-
 /*
  *  This example illustrates how to create a dataset
  *  array.  It is used in the HDF5 Tutorial.
